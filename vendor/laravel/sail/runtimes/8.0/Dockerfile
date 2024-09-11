@@ -43,10 +43,13 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get install -y mysql-client \
+    && apt-get install -y libxml2-dev \
+    && apt-get install -y docker-php-ext-install dom \
     && apt-get install -y postgresql-client-$POSTGRES_VERSION \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 RUN update-alternatives --set php /usr/bin/php8.0
 
