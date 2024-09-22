@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WeatherController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -16,9 +17,9 @@ Route::middleware('auth')->group(function () {
         return view('tarefas');
     })->middleware(['auth', 'verified'])->name('tarefas');
     
-    Route::get('/climatempo', function () {
-        return view('climatempo');
-    })->middleware(['auth', 'verified'])->name('climatempo');
+    Route::middleware('auth')->group(function () {
+        Route::get('/previsao-tempo', [WeatherController::class, 'show'])->middleware(['auth', 'verified'])->name('previsao-tempo');
+    });
 
     Route::get('/mercado', function () {
         return view('mercado');
