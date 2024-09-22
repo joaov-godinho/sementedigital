@@ -19,7 +19,7 @@
                     <x-nav-link :href="route('tarefas')" :active="request()->routeIs('/tarefas')">
                         {{ __('Tarefas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('climatempo')" :active="request()->routeIs('/climatempo')">
+                    <x-nav-link :href="route('previsao-tempo')" :active="request()->routeIs('/previsao-tempo')">
                         {{ __('Previsão do Tempo') }}
                     </x-nav-link>
                     <x-nav-link :href="route('mercado')" :active="request()->routeIs('/mercado')">
