@@ -47,9 +47,9 @@
             @endif
         </div>
 
-        <div>
+        <div x-data>
             <x-input-label for="postal_code" :value="__('Código Postal')" />
-            <x-text-input id="postal_code" name="postal_code" type="text" class="mt-1 block w-full" :value="old('postal_code', $user->postal_code)" required autofocus autocomplete="postal_code" />
+            <x-text-input id="postal_code" name="postal_code" type="text" class="mt-1 block w-full" :value="old('postal_code', $user->postal_code)" x-mask="99999-999" placeholder="99999-999" required autofocus autocomplete="postal_code" />
             <x-input-error class="mt-2" :messages="$errors->get('postal_code')" />
         </div>
 

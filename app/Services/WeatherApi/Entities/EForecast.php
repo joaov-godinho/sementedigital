@@ -13,7 +13,7 @@ class EForecast
     public float $totalprecip_mm;
     public int $avghumidity;
     public int $daily_chance_of_rain;
-
+    public array $condition;
     public function __construct(array $data)
     {
         $this->date = data_get($data, 'date', '');
@@ -25,5 +25,6 @@ class EForecast
         $this->totalprecip_mm = data_get($data, 'day.totalprecip_mm', 0.0);
         $this->avghumidity = data_get($data, 'day.avghumidity', 0);
         $this->daily_chance_of_rain = data_get($data, 'day.daily_chance_of_rain', 0);
+        $this->condition = data_get($data, 'day.condition', []);
     }
 }
