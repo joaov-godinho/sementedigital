@@ -56,9 +56,31 @@ class TarefaController extends Controller
         return response()->json(['status' => 'Tarefa não encontrada!'], 404);
     }
 
-    
+    public function atualizar(Request $request, $id)
+    {
+        \Log::info('Atualizando tarefa:', [
+            'id' => $id,
+            'request_data' => $request->all(),
+        ]);
+        
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'start' => 'required|date',
+            'end' => 'nullable|date|after:start',
+        ]);
 
+        $tarefa = Tarefa::find($id);
 
+        if ($tarefa) {
+            $tarefa->titulo = $request->input('title');
+            $tarefa->data_inicio = $request->input('start');
+            $tarefa->data_fim = $request->input('end');
+            $tarefa->save();
 
+            return response()->json(['status' => true, 'message' => 'Tarefa atualizada com sucesso!']);
+        }
+
+        return response()->json(['status' => false, 'message' => 'Tarefa não encontrada!'], 404);
+    }
 
 }

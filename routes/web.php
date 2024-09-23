@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tarefas/eventos', [TarefaController::class, 'eventos'])->middleware('auth');
     Route::post('/tarefas/salvar', [TarefaController::class, 'salvar'])->middleware('auth');
     Route::delete('/tarefas/excluir/{id}', [TarefaController::class, 'excluir'])->middleware('auth');
+    Route::post('/tarefas/atualizar/{id}', [TarefaController::class, 'atualizar'])->middleware('auth');
     
     Route::middleware('auth')->group(function () {
         Route::get('/previsao-tempo', [WeatherController::class, 'show'])->middleware(['auth', 'verified'])->name('previsao-tempo');
