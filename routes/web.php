@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WeatherController;
+use App\Http\Controllers\TarefaController;
+use App\Http\Controllers\ContatoController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -16,6 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/tarefas', function () {
         return view('tarefas');
     })->middleware(['auth', 'verified'])->name('tarefas');
+    Route::get('/tarefas/eventos', [TarefaController::class, 'eventos'])->middleware('auth');
+    Route::post('/tarefas/salvar', [TarefaController::class, 'salvar'])->middleware('auth');
+    Route::delete('/tarefas/excluir/{id}', [TarefaController::class, 'excluir'])->middleware('auth');
     
     Route::middleware('auth')->group(function () {
         Route::get('/previsao-tempo', [WeatherController::class, 'show'])->middleware(['auth', 'verified'])->name('previsao-tempo');
@@ -28,10 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/contato', function () {
         return view('contato');
     })->middleware(['auth', 'verified'])->name('contato');
-
-    Route::get('/sobre', function () {
-        return view('sobre');
-    })->middleware(['auth', 'verified'])->name('sobre');
+    Route::post('/contato', [App\Http\Controllers\ContatoController::class, 'store'])->middleware(['auth', 'verified'])->name('contato.store');
 
     Route::get('/politicas', function () {
         return view('politicas');

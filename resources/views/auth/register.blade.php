@@ -40,11 +40,11 @@
         </div>
 
         <!-- Postal Code -->
-        <div class="mt-4">
+        <div class="mt-4" x-data>
             <x-input-label for="postal_code" :value="__('Código Postal')" />
             <x-text-input id="postal_code" class="block mt-1 w-full"
                 type="text"
-                name="postal_code" :value="old('postal_code')" required />
+                name="postal_code" :value="old('postal_code')" x-mask="99999-999" placeholder="99999-999" required />
         </div>
 
         <div class="flex items-center justify-end mt-4">

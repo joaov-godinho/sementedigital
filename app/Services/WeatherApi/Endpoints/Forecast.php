@@ -23,6 +23,7 @@ class Forecast
                 'q' => $location,
                 'days' => $days
             ]);
+        \Log::info('Weather API Response:', $response->json());
 
         return $this->transform($response->json('forecast.forecastday', []));
     }

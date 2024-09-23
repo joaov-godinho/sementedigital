@@ -14,8 +14,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body class="font-sans antialiased flex flex-col min-h-screen">
+        <div class="flex-grow bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -32,5 +32,12 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <footer class="bg-gray-800 text-white py-4">
+            <div class="px-3 max-w-7xl mx-auto flex justify-between items-center">
+                <p class="text-left">{{ date('Y') }} <a href="{{ route('/') }}" class="text-white hover:underline">Semente Digital</a>. Todos os direitos reservados.</p>
+                <a href="{{ route('politicas') }}" class="text-white hover:underline">Políticas da Empresa</a>
+            </div>
+        </footer>
     </body>
 </html>

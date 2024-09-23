@@ -25,14 +25,8 @@
                     <x-nav-link :href="route('mercado')" :active="request()->routeIs('/mercado')">
                         {{ __('Mercado') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('sobre')" :active="request()->routeIs('/sobre')">
-                        {{ __('Sobre Nós') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('contato')" :active="request()->routeIs('/contato')">
                         {{ __('Contato') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('politicas')" :active="request()->routeIs('/politicas')">
-                        {{ __('Políticas') }}
                     </x-nav-link>
                 </div>
             </div>
