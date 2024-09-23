@@ -1,66 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Semente Digital
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Visão Geral
 
-## About Laravel
+- A agropecuária familiar desempenha um papel crucial na economia e na
+segurança alimentar de muitas regiões, sendo responsável por grande parte da
+produção agrícola e pecuária. No entanto, pequenos produtores enfrentam
+desafios significativos, como a falta de acesso a tecnologias e informações que
+poderiam otimizar suas atividades e melhorar a produtividade.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Nesse contexto, a aplicação que estamos desenvolvendo surge como
+uma ferramenta para apoiar esses produtores. Trata-se de uma página web
+intuitiva e acessível, que funciona como uma agenda digital. Com ela, os
+produtores poderão organizar suas tarefas diárias, agendar atividades
+essenciais, e consultar a previsão do tempo para planejar suas operações
+agrícolas de forma mais eficaz. Além disso, a aplicação oferece informações
+atualizadas sobre os preços de mercado de produtos agrícolas, permitindo que
+os produtores façam escolhas informadas na hora de comprar insumos e vender
+sua produção.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Outro diferencial da aplicação é a disponibilização de dicas de cultivo para
+diversas culturas, fornecendo orientação técnica que pode fazer a diferença na
+produtividade e na sustentabilidade das operações agropecuárias. Com essa
+ferramenta, pequenos produtores terão um suporte robusto para gerenciar suas
+atividades, melhorar a eficiência e, consequentemente, aumentar sua
+competitividade no mercado
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Funcionalidades
+- **Cadastro de Usuários:** O sistema permite o cadastro de usuários
+- **Login e Registro:** O sistema permite que os usuários façam login utilizando suas credenciais
+- **Cadastro de Tarefas:** Os usuários podem adicionar, visualizar e gerenciar suas tarefas futuras.
+- **Previsão do Tempo:** A aplicação exibe a previsão do tempo para os próximos dias, baseada no código postal do usuário. O sistema utiliza a [WeatherAPI](https://www.weatherapi.com/) para buscar as informações climáticas.
+- **Consultas de Mercado:** Acompanhe o preço de produtos agrícolas em tempo real. -> **Ainda é necessário implementar**
 
-## Learning Laravel
+## Tecnologias Utilizadas
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Backend:** PHP 8.3 com o framework Laravel
+- **Frontend:** Laravel Breeze, HTML, CSS (Tailwind), FullCalendar.js
+- **Banco de Dados:** MySQL (em desenvolvimento com SQLite como alternativa local)
+- **API Externa:** [WeatherAPI](https://www.weatherapi.com/) para consulta de condições climáticas
+- **Docker:** Ambiente de desenvolvimento Dockerizado
+- **Servidor Web:** Apache com PHP
+- **Outros:** Composer, Node.js, Supervisor
