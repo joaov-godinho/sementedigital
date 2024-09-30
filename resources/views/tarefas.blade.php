@@ -26,6 +26,8 @@
                 initialView: 'dayGridMonth',
                 selectable: true,
                 editable: true,
+                eventDurationEditable: true, // Permite editar a duração do evento
+                eventResizableFromStart: true, // Permite redimensionar a partir do início
                 events: '/tarefas/eventos',
                 select: function(info) {
                     var title = prompt('Título da tarefa:');
@@ -115,6 +117,9 @@
                 },
                 eventDrop: function(info) {
                     updateEvent(info.event);
+                },
+                eventResize: function(info) {
+                    updateEvent(info.event); // Atualiza a tarefa ao redimensionar
                 }
             });
 

@@ -18,19 +18,19 @@
                     @csrf
                     <div class="mb-4">
                         <label for="nome" class="block dark:text-gray-300">Nome:</label>
-                        <input type="text" name="nome" id="nome" class="w-full  border-gray-800 rounded-lg" value="{{ old('nome') }}" required>
+                        <input type= "text" name="nome" id="nome" class="dark:text-gray-800 w-full  border-gray-800 rounded-lg" value="{{ old('nome') }}" required>
                         @error('nome') <span class="text-red-500">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-4">
                         <label for="email" class="block dark:text-gray-300">Email:</label>
-                        <input type="email" name="email" id="email" class="w-full dark:text-gray-300 border-gray-800 rounded-lg" value="{{ old('email') }}" required>
+                        <input type="email" name="email" id="email" class="w-full dark:text-gray-800 border-gray-800 rounded-lg" value="{{ old('email') }}" required>
                         @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-4">
                         <label for="mensagem" class="block dark:text-gray-300">Mensagem:</label>
-                        <textarea name="mensagem" id="mensagem" class="w-full dark:text-gray-300 border-gray-800 rounded-lg" required>{{ old('mensagem') }}</textarea>
+                        <textarea name="mensagem" id="mensagem" class="w-full dark:text-gray-800 border-gray-800 rounded-lg" required>{{ old('mensagem') }}</textarea>
                         @error('mensagem') <span class="text-red-500">{{ $message }}</span> @enderror
                     </div>
 
