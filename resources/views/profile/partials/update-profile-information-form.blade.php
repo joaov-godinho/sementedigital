@@ -52,6 +52,12 @@
             <x-text-input id="postal_code" name="postal_code" type="text" class="mt-1 block w-full" :value="old('postal_code', $user->postal_code)" x-mask="99999-999" placeholder="99999-999" required autofocus autocomplete="postal_code" />
             <x-input-error class="mt-2" :messages="$errors->get('postal_code')" />
         </div>
+        
+        <div>
+        <x-input-label for="city" :value="__('Cidade')" />
+            <x-text-input id="city" name="city" type="text" class="mt-1 block w-full" :value="old('city', $user->city)" readonly />
+            <x-input-error class="mt-2" :messages="$errors->get('city')" />
+        </div>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

@@ -8,9 +8,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Services\PostalCode\PostalCodeService; // Certifique-se de importar o serviço
 
 class ProfileController extends Controller
 {
+    protected $postalCodeService;
+
+    public function __construct(PostalCodeService $postalCodeService)
+    {
+        $this->postalCodeService = $postalCodeService; // Injetar o serviço de consulta de CEP
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -26,13 +34,30 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        // Obter o CEP do request
+        $postalCode = $request->postal_code;
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // Consultar o nome da cidade usando o PostalCodeService
+        $cityName = $this->postalCodeService->getCityFromPostalCode($postalCode);
+
+        // Verificar se a cidade foi encontrada
+        if (empty($cityName)) {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors(['postal_code' => 'CEP inválido ou não encontrado.']);
         }
 
-        $request->user()->save();
+        // Preencher os dados do usuário com os dados validados e a cidade obtida
+        $user = $request->user();
+        $user->fill($request->validated());
+        $user->city = $cityName; // Atualizar o nome da cidade
+
+        // Se o email foi alterado, desmarcar a verificação
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
