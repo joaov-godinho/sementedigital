@@ -1,4 +1,3 @@
-````markdown
 # 🌱 Semente Digital - Plataforma de Gestão Rural
 
 > Uma solução robusta para produtores rurais acompanharem o clima, cotações de mercado e gerenciarem suas tarefas diárias.
@@ -48,13 +47,10 @@ O projeto foi construído seguindo os princípios de **Clean Code** e **SOLID**,
 
 ## 📸 Screenshots
 
-*(Adicione aqui os prints das telas do seu projeto)*
-
 | Previsão do Tempo | Cotações de Mercado |
 |:---:|:---:|
 | ![Weather](screenshots/weather.png) | ![Market](screenshots/market.png) |
 
----
 
 ## ⚙️ Como Rodar o Projeto Localmente
 
@@ -70,7 +66,7 @@ Este projeto utiliza **Docker**, o que torna a instalação extremamente simples
    ```bash
    git clone [https://github.com/seu-usuario/sementedigital.git](https://github.com/seu-usuario/sementedigital.git)
    cd sementedigital
-````
+   ```
 
 2.  **Configure as Variáveis de Ambiente:**
 
