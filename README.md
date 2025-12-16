@@ -1,43 +1,121 @@
-# Semente Digital
+````markdown
+# 🌱 Semente Digital - Plataforma de Gestão Rural
 
-## Visão Geral
+> Uma solução robusta para produtores rurais acompanharem o clima, cotações de mercado e gerenciarem suas tarefas diárias.
 
-- A agropecuária familiar desempenha um papel crucial na economia e na
-segurança alimentar de muitas regiões, sendo responsável por grande parte da
-produção agrícola e pecuária. No entanto, pequenos produtores enfrentam
-desafios significativos, como a falta de acesso a tecnologias e informações que
-poderiam otimizar suas atividades e melhorar a produtividade.
+![Status do Projeto](https://img.shields.io/badge/status-concluído-brightgreen)
+![Laravel](https://img.shields.io/badge/Laravel-10.x-red)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
 
-- Nesse contexto, a aplicação que estamos desenvolvendo surge como
-uma ferramenta para apoiar esses produtores. Trata-se de uma página web
-intuitiva e acessível, que funciona como uma agenda digital. Com ela, os
-produtores poderão organizar suas tarefas diárias, agendar atividades
-essenciais, e consultar a previsão do tempo para planejar suas operações
-agrícolas de forma mais eficaz. Além disso, a aplicação oferece informações
-atualizadas sobre os preços de mercado de produtos agrícolas, permitindo que
-os produtores façam escolhas informadas na hora de comprar insumos e vender
-sua produção.
+## 💻 Sobre o Projeto
 
-- Outro diferencial da aplicação é a disponibilização de dicas de cultivo para
-diversas culturas, fornecendo orientação técnica que pode fazer a diferença na
-produtividade e na sustentabilidade das operações agropecuárias. Com essa
-ferramenta, pequenos produtores terão um suporte robusto para gerenciar suas
-atividades, melhorar a eficiência e, consequentemente, aumentar sua
-competitividade no mercado
+O **Semente Digital** é uma aplicação web Fullstack desenvolvida para centralizar informações vitais para o agronegócio. O diferencial técnico deste projeto reside na sua arquitetura resiliente e no uso de estratégias avançadas de obtenção de dados (APIs e Web Scraping) com otimização via Cache.
 
-## Funcionalidades
-- **Cadastro de Usuários:** O sistema permite o cadastro de usuários
-- **Login e Registro:** O sistema permite que os usuários façam login utilizando suas credenciais
-- **Cadastro de Tarefas:** Os usuários podem adicionar, visualizar e gerenciar suas tarefas futuras.
-- **Previsão do Tempo:** A aplicação exibe a previsão do tempo para os próximos dias, baseada no código postal do usuário. O sistema utiliza a [WeatherAPI](https://www.weatherapi.com/) para buscar as informações climáticas.
-- **Consultas de Mercado:** Acompanhe o preço de produtos agrícolas em tempo real. -> **Ainda é necessário implementar**
+## 🚀 Funcionalidades Principais
 
-## Tecnologias Utilizadas
+### 1. 🌤️ Previsão do Tempo Inteligente
+- **Integração:** Consumo da API oficial **WeatherAPI**.
+- **Performance:** Implementação de **Cache Redis** (TTL 6 horas) para evitar consumo excessivo de cotas da API.
+- **Arquitetura:** Uso de **DTOs (Data Transfer Objects)** para padronizar os dados entre a API externa e a View.
 
-- **Backend:** PHP 8.3 com o framework Laravel
-- **Frontend:** Laravel Breeze, HTML, CSS (Tailwind), FullCalendar.js
-- **Banco de Dados:** MySQL (em desenvolvimento com SQLite como alternativa local)
-- **API Externa:** [WeatherAPI](https://www.weatherapi.com/) para consulta de condições climáticas
-- **Docker:** Ambiente de desenvolvimento Dockerizado
-- **Servidor Web:** Apache com PHP
-- **Outros:** Composer, Node.js, Supervisor
+### 2. 📈 Cotações de Mercado (Web Scraping)
+- **Engenharia Reversa:** Robô desenvolvido com `Symfony DomCrawler` que extrai dados em tempo real do site do **CEPEA/Esalq**.
+- **Dados:** Monitoramento de Soja, Milho, Café e Boi Gordo.
+- **Resiliência:** Sistema de **Cache Redis** (TTL 12 horas) para evitar bloqueios de IP e garantir alta disponibilidade mesmo se o site fonte oscilar.
+
+### 3. ✅ Gestão de Tarefas
+- CRUD completo para gerenciamento de atividades rurais.
+- Autenticação e segurança de dados por usuário.
+
+---
+
+## 🛠️ Tecnologias e Arquitetura
+
+O projeto foi construído seguindo os princípios de **Clean Code** e **SOLID**, fugindo do padrão básico MVC e adotando camadas de serviço.
+
+- **Backend:** Laravel Framework (PHP 8.2+)
+- **Frontend:** Blade Templates + Tailwind CSS (Responsivo)
+- **Banco de Dados:** MySQL 8.0
+- **Cache & Sessão:** Redis (Alpine)
+- **Infraestrutura:** Docker & Docker Compose (Ambiente containerizado customizado)
+- **Design Patterns:**
+    - **Service Pattern:** Lógica de negócios isolada dos Controllers.
+    - **Repository/DTO Pattern:** Transferência de dados tipada e segura.
+    - **Dependency Injection:** Para testabilidade e desacoplamento.
+
+---
+
+## 📸 Screenshots
+
+*(Adicione aqui os prints das telas do seu projeto)*
+
+| Previsão do Tempo | Cotações de Mercado |
+|:---:|:---:|
+| ![Weather](screenshots/weather.png) | ![Market](screenshots/market.png) |
+
+---
+
+## ⚙️ Como Rodar o Projeto Localmente
+
+Este projeto utiliza **Docker**, o que torna a instalação extremamente simples e agnóstica ao sistema operacional.
+
+### Pré-requisitos
+- Docker e Docker Compose instalados.
+- Git.
+
+### Passo a Passo
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/sementedigital.git](https://github.com/seu-usuario/sementedigital.git)
+   cd sementedigital
+````
+
+2.  **Configure as Variáveis de Ambiente:**
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    *Edite o arquivo `.env` e adicione sua chave da WeatherAPI em `WEATHERAPI_KEY`.*
+
+3.  **Suba os Containers:**
+
+    ```bash
+    docker compose up -d
+    ```
+
+4.  **Instale as Dependências:**
+
+    ```bash
+    docker compose exec app composer install
+    docker compose exec app npm install
+    docker compose exec app npm run build
+    ```
+
+5.  **Configure o Banco de Dados e Cache:**
+
+    ```bash
+    docker compose exec app php artisan key:generate
+    docker compose exec app php artisan migrate
+    ```
+
+6.  **Acesse:**
+    O projeto estará rodando em: `http://localhost`
+
+-----
+
+## 🧪 Comandos Úteis
+
+  - **Limpar Cache:** `docker compose exec app php artisan cache:clear`
+  - **Acessar Container:** `docker compose exec app bash`
+  - **Logs em Tempo Real:** `docker compose logs -f`
+
+-----
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
+
+```
