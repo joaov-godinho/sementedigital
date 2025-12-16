@@ -1,18 +1,33 @@
-/.phpunit.cache
+/vendor
 /node_modules
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/testing/*
+/storage/logs/*
+
+# Arquivos de ambiente e segredos
+.env
 .env.backup
 .env.production
-.phpactor.json
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
 auth.json
+
+# Testes e relatórios de cobertura
+.phpunit.result.cache
+.coverage
+html-report/
+
+# Arquivos de Sistema e IDE
+.idea
+.vscode
+.DS_Store
+Thumbs.db
 npm-debug.log
 yarn-error.log
-/.fleet
-/.idea
-/.vscode
+
+# Opcional: Se você usa SQLite localmente e não quer subir o banco
+/database/*.sqlite

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+# Inicia o Supervisor (que vai rodar o PHP e o Nginx/Apache se tiver)
+exec /usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf
