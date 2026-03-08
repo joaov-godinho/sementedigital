@@ -274,36 +274,6 @@ sementedigital/
 
 ---
 
-## 🚀 Roadmap
-
-- [ ] Implementar testes automatizados (Feature + Unit)
-- [ ] Adicionar CI/CD com GitHub Actions
-- [ ] API RESTful para integração mobile
-- [ ] Sistema de notificações (alertas de preço)
-- [ ] Dashboard analytics com gráficos interativos
-- [ ] Suporte a múltiplos idiomas (i18n)
-
----
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Para contribuir:
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
-5. Abra um Pull Request
-
-### Convenções de Código
-
-- Siga o PSR-12 para código PHP
-- Use ESLint para JavaScript
-- Documente funções públicas com PHPDoc
-- Escreva testes para novas features
-
----
-
 ## 📚 Referências Técnicas
 
 - [Laravel Documentation](https://laravel.com/docs)
@@ -316,15 +286,6 @@ Contribuições são bem-vindas! Para contribuir:
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-## ✉️ Contato
-
-**João Vitor Godinho**  
-📧 joaovitor.godinho@outlook.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/joão-vb-godinho/)  
-💻 [GitHub](https://github.com/joaov-godinho)
 
 ---
 
